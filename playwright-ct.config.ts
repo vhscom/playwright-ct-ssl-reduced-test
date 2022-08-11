@@ -32,13 +32,13 @@ const config: PlaywrightTestConfig = {
 		ctPort: 3100,
 
 		/* Custom */
-		baseURL: 'https://localhost:4173',
-		ignoreHTTPSErrors: true,
+		// baseURL: 'https://localhost:4173',
+		// ignoreHTTPSErrors: true,
 		ctViteConfig: {
-			preview: {
-				https: true
-			},
-			plugins: [basicSsl(), sveltekit()],
+			// preview: {
+			// 	https: true
+			// },
+			// plugins: [basicSsl(), sveltekit()],
 			resolve: {
 				alias: {
 					$lib: resolve('src/lib')

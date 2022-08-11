@@ -1,15 +1,18 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 
+const plugins = [sveltekit()];
+if (!process.env.RUNNING_UNDER_PLAYWRIGHT_TEST) plugins.unshift(basicSsl());
+
 /** @type {import('vite').UserConfig} */
 const config = {
 	define: {
 		global: 'globalThis'
 	},
 	preview: {
-		https: true
+		https: !process.env.RUNNING_UNDER_PLAYWRIGHT_TEST
 	},
-	plugins: [basicSsl(), sveltekit()]
+	plugins
 };
 
 export default config;
